@@ -1,9 +1,9 @@
 import { db } from "@/db";
 import { Post } from "@/types/models";
 
-export type PostWithData = Post & {
+export type PostWithData = Omit<Post, "user" | "topic"> & {
   topic: { slug: string };
-  user: { name: string | null };
+  user: { name: string | null; image: string | null };
   _count: { comments: number };
 };
 
@@ -25,7 +25,7 @@ export function fetchPostsByTopicSlug(slug: string): Promise<PostWithData[]> {
     where: { topic: { slug } },
     include: {
       topic: { select: { slug: true } },
-      user: { select: { name: true } },
+      user: { select: { name: true, image: true } },
       _count: { select: { comments: true } },
     },
   });

@@ -2,7 +2,7 @@ import { Comment } from "@/types/models";
 import { cache } from "react";
 import { db } from "@/db";
 
-export type CommentWithAuthor = Comment & {
+export type CommentWithAuthor = Omit<Comment, "user"> & {
   user: { name: string | null; image: string | null };
 };
 
