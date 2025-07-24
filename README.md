@@ -1,6 +1,7 @@
 # Discussion Platform
 
 A full-stack discussion platform built with Next.js, TypeScript, and Prisma. Users can create topics, posts, and comments, with authentication and a modern UI.
+Live Demo: https://discussion-pi.vercel.app/
 
 ---
 
